@@ -1,0 +1,40 @@
+@import url('https://googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root{
+    /* ***** Colors ****** */
+    --body-color: #e4e9f7;
+    --sidebar-color: #fff;
+    --primary-color: #695cfe;
+    --primary-color-ligth: #f6f5ff; 
+    --toggle-color: #ddd;
+    --text-color: #707070;
+
+    /* ******** transition ***** */
+    --trans-02: 0.2s ease;
+    --trans-03: 0.3s ease;
+    --trans-04: 0.4s ease;
+    --trans-05: 0.5s ease;
+}
+body{
+        height: 100vh;
+        background: var(--body-color);
+        transition: var(--trans-04);
+}
+  
+
+.body.dark{
+    --body-color: #191914;
+    --sidebar-color: #242526;
+    --primary-color: #3a383c;
+    --primary-color-ligth: #3a383c; 
+    --toggle-color: #fff;
+    --text-color: #ccc;
+}
