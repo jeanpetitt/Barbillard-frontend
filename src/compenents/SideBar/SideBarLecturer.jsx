@@ -1,33 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../style/sidebar.css";
 import logo from "../asset/logo.jpg"
 
 function SideBarLecturer() {
+    const [switched,setSwitch] = useState(false)
+    const sidebar = document.querySelector(".sidebar"),
+          modeSwitch = document.querySelector(".toggle-switch"),
+          app = document.querySelector('.App')
 
-    const toggleSwitch = () => {
-        const body = document.querySelector("body"),
-              sidebar = body.querySelector('.sidebar'),
-              toggle = body.querySelector(".toggle"),
-              searchBtn = body.querySelector(".search-box"),
-              modeSwitch = body.querySelector(".toogle-switch"),
-              modeText = body.querySelector(".mode-text")
+    const [expandSideBar, SetExpandSideBar] = useState(false)
 
-              if (toggle){
-                body.classList.toggle("close")
-              }
-              if(modeSwitch){
-                body.classList.toggle("dark")
-              }
-              if (body.classList.contains('dark')){
-                modeText.innerText = 'Light Mode'
-              }else{
-                modeText.innerText = 'Dark Mode'
-              }
+    const toggleSideBar = () => {
+        if(!expandSideBar){
+            SetExpandSideBar(true)
+            
+        }
+        else{
+            SetExpandSideBar(false)
+            sidebar.classList.toggle("close")
+            
+        }
     }
-  return (
-    <div>
-
-        <nav className="sidebar">
+    
+    const toggleSwitch = () => {
+        if(!switched){
+            setSwitch(true)
+            
+        }
+        else{
+            app.classList.toggle("dark")
+            setSwitch(false)
+            
+        }
+    }
+    return (
+    <nav className="sidebar">
             <header>
                 <div className="image-text">
                     <span className="image">
@@ -39,17 +46,17 @@ function SideBarLecturer() {
                     </div>
                 </div>  
 
-                <i className="bx bx-chevron-right toggle"></i>  
+                <i className="bx bx-chevron-right toggle" onClick={() => toggleSideBar()}></i>  
             </header>
 
             <div className="menu-bar">
                 <div className="menu">
                     <ul className="menu-link">
-                        <li className="search-box">
+                        {/* <li className="search-box">
                             <i className="bx bx-search icon"></i>
                             <input type="search" placeholder="search..." />
                             
-                        </li>
+                        </li> */}
                         <li className="nav-link">
                             <a href="#">
                                 <i className="bx bx-home-alt icon"></i>
@@ -103,19 +110,16 @@ function SideBarLecturer() {
                         </div>
                         <span className="mode-text text">Dark Mode</span>
 
-                        <div className="toggle-switch" onClick={()=> toggleSwitch()}>
-                            <span className="switch"></span>
+                        <div className="toggle-switch">
+                            <span className="switch"  onClick={() => toggleSwitch()}></span>
                         </div>
                     </li>
                     
                 </div>
             </div>
-        </nav>
-        <section className="home">
-            <div className="text">Dashboard</div>
-        </section>
+    </nav>
 
-    </div>
+
 
   )
 }

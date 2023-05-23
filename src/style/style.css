@@ -23,14 +23,14 @@
     --trans-04: 0.4s ease;
     --trans-05: 0.5s ease;
 }
-body{
+.App{
         height: 100vh;
         background: var(--body-color);
         transition: var(--trans-04);
 }
   
 
-.body.dark{
+.App.dark{
     --body-color: #191914;
     --sidebar-color: #242526;
     --primary-color: #3a383c;
