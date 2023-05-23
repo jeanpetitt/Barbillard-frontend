@@ -1,11 +1,16 @@
 import './style/style.css'
 import SideBarLecturer from './compenents/SideBar/SideBarLecturer';
+import { BrowserRouter } from 'react-router-dom';
+import NavBar from './compenents/NavBar';
+import Home from './pages/Home';
+import Lecturer from './pages/Lecturer';
 
 function App() {
   return (
-    <div className="App">
-        <SideBarLecturer/>
-    </div>
+    <BrowserRouter>
+      <NavBar/>
+
+    </BrowserRouter>
   );
 }
 
